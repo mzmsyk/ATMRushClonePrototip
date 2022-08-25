@@ -17,12 +17,13 @@ public class PlayerMovementController : MonoBehaviour
     void Start()
     {
         _rig = GetComponent<Rigidbody>();
-        _horizontalInput = joystick.Horizontal;
+        
     }
 
     
     void FixedUpdate()
     {
+        _horizontalInput = joystick.Horizontal;
         if (_isReadyToMove)
         {
             Move();
@@ -45,7 +46,7 @@ public class PlayerMovementController : MonoBehaviour
         //_rig.velocity = new Vector3(_horizontalInput * _playerMovementData.sideWaySpeed,
         //    _rig.velocity.y,
         //    _playerMovementData.forwardSpeed);
-        _rig.velocity = new Vector3(_horizontalInput*2,
+        _rig.velocity = new Vector3(_horizontalInput*3,
             _rig.velocity.y,
             5);
     }
