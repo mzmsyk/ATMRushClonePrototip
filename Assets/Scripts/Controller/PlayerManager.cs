@@ -21,11 +21,11 @@ public class PlayerManager : MonoBehaviour
     private void Awake()
     {
         _playerMovementController = GetComponent<PlayerMovementController>();
-        
+        _playerData = GetPlayerData();
         SendPlayerDataToController();
     }
-    
 
+    private PlayerData GetPlayerData() => Resources.Load<CD_Player>("Datas/UnityObjects/CD_Player").Data;
     #region Event Subsicription
 
     void OnEnable()
@@ -47,7 +47,7 @@ public class PlayerManager : MonoBehaviour
         InputSignals.Instance.onInputReleased -= OnInputReleased;
         
     }
-
+   
     private void OnDisable()
     {
         UnsubscribeEvents();
@@ -79,9 +79,9 @@ public class PlayerManager : MonoBehaviour
         _playerMovementController.SetSideForces(0);
     }
 
-    private void OnPlayerAndObstacleCrash()
-    {
-        _playerMovementController.PushPlayerBack();
-    }
+    //private void OnPlayerAndObstacleCrash()
+    //{
+    //    _playerMovementController.PushPlayerBack();
+    //}
    
 }
