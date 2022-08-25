@@ -1,3 +1,4 @@
+using Controller;
 using Keys;
 using Signals;
 using System.Collections;
@@ -10,7 +11,7 @@ public class PlayerManager : MonoBehaviour
     #region public vars
     #endregion
     #region serializefield vars
-    
+    [SerializeField] PlayerAnimationController playerAnimationController;
     #endregion
     #region private vars
     PlayerMovementController _playerMovementController;
@@ -35,14 +36,14 @@ public class PlayerManager : MonoBehaviour
 
     private void SubscribeEvents()
     {
-        
+        CoreGameSignals.instance.onPlay += OnActivateMovement;
         InputSignals.Instance.onInputDragged += OnInputDragged;
         InputSignals.Instance.onInputReleased += OnInputReleased;
         
     }
     private void UnsubscribeEvents()
     {
-        
+        CoreGameSignals.instance.onPlay -= OnActivateMovement;
         InputSignals.Instance.onInputDragged -= OnInputDragged;
         InputSignals.Instance.onInputReleased -= OnInputReleased;
         

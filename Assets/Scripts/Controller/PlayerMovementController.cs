@@ -8,7 +8,7 @@ public class PlayerMovementController : MonoBehaviour
 {
     #region private vars
     Rigidbody _rig;
-    private bool _isReadyToMove=false;
+    private bool _isReadyToMove=true;
     private PlayerMovementData _playerMovementData;
     private float _horizontalInput = 0f;
     private float _clamp = 0f;
@@ -46,9 +46,7 @@ public class PlayerMovementController : MonoBehaviour
         _rig.velocity = new Vector3(_horizontalInput * _playerMovementData.sideWaySpeed,
             _rig.velocity.y,
             _playerMovementData.forwardSpeed);
-        //_rig.velocity = new Vector3(_horizontalInput*3,
-        //    _rig.velocity.y,
-        //    5);
+        
     }
     private void Stop()
     {
