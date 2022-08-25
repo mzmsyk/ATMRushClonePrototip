@@ -23,7 +23,7 @@ public class PlayerMovementController : MonoBehaviour
     
     void FixedUpdate()
     {
-        _horizontalInput = joystick.Horizontal;
+       // _horizontalInput = joystick.Horizontal;
         if (_isReadyToMove)
         {
             Move();
@@ -43,15 +43,48 @@ public class PlayerMovementController : MonoBehaviour
     }
     private void Move()
     {
-        //_rig.velocity = new Vector3(_horizontalInput * _playerMovementData.sideWaySpeed,
-        //    _rig.velocity.y,
-        //    _playerMovementData.forwardSpeed);
-        _rig.velocity = new Vector3(_horizontalInput*3,
+        _rig.velocity = new Vector3(_horizontalInput * _playerMovementData.sideWaySpeed,
             _rig.velocity.y,
-            5);
+            _playerMovementData.forwardSpeed);
+        //_rig.velocity = new Vector3(_horizontalInput*3,
+        //    _rig.velocity.y,
+        //    5);
     }
     private void Stop()
     {
         _rig.velocity = Vector3.zero;
+    }
+    public void SetMovementData(PlayerMovementData movementData)
+    {
+        _playerMovementData = movementData;
+    }
+
+    public void SetSideForces(HorizontalInputParams horizontalInput)
+    {
+        _horizontalInput = horizontalInput.XValue;
+
+        _clamp = horizontalInput.ClampValues;
+
+        ClampControl();
+    }
+
+    public void SetSideForces(float horizontalInput)
+    {
+        _horizontalInput = horizontalInput;
+    }
+
+    private void ClampControl()
+    {
+        if ((_horizontalInput < 0 && _rig.position.x <= -_clamp) || (_horizontalInput > 0 && _rig.position.x >= _clamp))
+        {
+            _horizontalInput = 0;
+        }
+    }
+
+    public void PushPlayerBack()
+    {
+        _rig.AddForce(new Vector3(0, 0, -500), ForceMode.VelocityChange);
+        //transform.DOMove(new Vector3(transform.position.x, transform.position.y, transform.position.z - 5f), 0.75f);
+
     }
 }
