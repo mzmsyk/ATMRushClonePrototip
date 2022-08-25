@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7b24a588c9789d439c5b2196a145348, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerAnimationController: {fileID: 0}
+  playerAnimationController: {fileID: 143867700}
 --- !u!4 &25876045 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3737449887752115396, guid: 21e637bf711dfb743bd01ad1a40202f6, type: 3}
