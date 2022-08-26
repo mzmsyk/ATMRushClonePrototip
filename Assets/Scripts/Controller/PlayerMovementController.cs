@@ -8,11 +8,10 @@ public class PlayerMovementController : MonoBehaviour
 {
     #region private vars
     Rigidbody _rig;
-    private bool _isReadyToMove=true;
+    private bool _isReadyToMove=false;
     private PlayerMovementData _playerMovementData;
     private float _horizontalInput = 0f;
     private float _clamp = 0f;
-    [SerializeField] private FixedJoystick joystick;
     #endregion
     void Start()
     {
@@ -23,8 +22,8 @@ public class PlayerMovementController : MonoBehaviour
     
     void FixedUpdate()
     {
-       // _horizontalInput = joystick.Horizontal;
-        if (_isReadyToMove)
+       
+        if (!_isReadyToMove)
         {
             Move();
         }

@@ -80,9 +80,9 @@ public class PlayerManager : MonoBehaviour
         _playerMovementController.SetSideForces(0);
     }
 
-    //private void OnPlayerAndObstacleCrash()
-    //{
-    //    _playerMovementController.PushPlayerBack();
-    //}
-   
+    private void OnPlayerAndObstacleCrash()
+    {
+        _playerMovementController.PushPlayerBack();
+    }
+
 }
