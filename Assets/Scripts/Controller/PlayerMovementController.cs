@@ -34,11 +34,11 @@ public class PlayerMovementController : MonoBehaviour
     }
     public void ActivateMovement()
     {
-        _isReadyToMove = true;
+        _isReadyToMove = false;//true
     }
     public void DeactivateMovement()
     {
-        _isReadyToMove = false;
+        _isReadyToMove = true;//false
     }
     private void Move()
     {
