@@ -24,14 +24,18 @@ public class PlayerManager : MonoBehaviour
         _playerMovementController = GetComponent<PlayerMovementController>();
         _playerData = GetPlayerData();
         SendPlayerDataToController();
+        
     }
-
+    private void Start()
+    {
+        SubscribeEvents();
+    }
     private PlayerData GetPlayerData() => Resources.Load<CD_Player>("Datas/UnityObjects/CD_Player").Data;
     #region Event Subsicription
 
     void OnEnable()
     {
-        SubscribeEvents();
+        //SubscribeEvents();
     }
 
     private void SubscribeEvents()

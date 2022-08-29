@@ -21,11 +21,15 @@ namespace Controller
             StartIdleAnim();
             animator = GetComponent<Animator>();
         }
+        private void Start()
+        {
+            SubscribeEvents();
+        }
 
         #region EventSubsicription
         private void OnEnable()
         {
-            SubscribeEvents();
+            //SubscribeEvents();
         }
 
         private void OnDisable()
