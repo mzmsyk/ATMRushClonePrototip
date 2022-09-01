@@ -34,13 +34,13 @@ namespace Managers
         private void SubscribeEvents()
         {
             //ScoreSignals.Instance.onUpdateAtmScore += OnUpdateAtmScore;
-            //PlayerSignals.Instance.onPlayerAndATMCrash += OnPlayerandATMCollide;
+            PlayerSignals.Instance.onPlayerAndATMCrash += OnPlayerandATMCollide;
         }
 
         private void UnSubscribeEvents()
         {
             //ScoreSignals.Instance.onUpdateAtmScore -= OnUpdateAtmScore;
-            //PlayerSignals.Instance.onPlayerAndATMCrash -= OnPlayerandATMCollide;
+            PlayerSignals.Instance.onPlayerAndATMCrash -= OnPlayerandATMCollide;
         }
 
         #endregion

@@ -38,7 +38,7 @@ public class CollectableStackManager : MonoBehaviour
 
     private void SubscribeEvents()
     {
-        //PlayerSignals.Instance.onPlayerAndObstacleCrash += OnPlayerAndObstacleCrash;
+        PlayerSignals.Instance.onPlayerAndObstacleCrash += OnPlayerAndObstacleCrash;
         CollectableSignals.Instance.onCollectableAndObstacleCollide += OnCollectableAndObstacleCollide;
         CollectableSignals.Instance.onCollectableAndCollectableCollide += OnCollectableAndCollectableCollide;
         CollectableSignals.Instance.onCollectableUpgradeCollide += OnCollectableUpgradeCollide;
@@ -48,7 +48,7 @@ public class CollectableStackManager : MonoBehaviour
     }
     private void UnsubscribeEvents()
     {
-        //PlayerSignals.Instance.onPlayerAndObstacleCrash -= OnPlayerAndObstacleCrash;
+        PlayerSignals.Instance.onPlayerAndObstacleCrash -= OnPlayerAndObstacleCrash;
         CollectableSignals.Instance.onCollectableAndObstacleCollide -= OnCollectableAndObstacleCollide;
         CollectableSignals.Instance.onCollectableAndCollectableCollide -= OnCollectableAndCollectableCollide;
         CollectableSignals.Instance.onCollectableUpgradeCollide -= OnCollectableUpgradeCollide;
