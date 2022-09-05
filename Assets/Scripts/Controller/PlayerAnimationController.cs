@@ -23,13 +23,13 @@ namespace Controller
         }
         private void Start()
         {
-            SubscribeEvents();
+            //SubscribeEvents();
         }
 
         #region EventSubsicription
         private void OnEnable()
         {
-            //SubscribeEvents();
+            SubscribeEvents();
         }
 
         private void OnDisable()
@@ -60,8 +60,8 @@ namespace Controller
         {
             ChangeAnimationData(AnimationStates.Idle);
             ResetAllAnims();
-            //animator.SetBool("Idle", true); //butonlar eklendiðinde aktif olacaktýr...
-            animator.SetBool("Run", true);
+            animator.SetBool("Idle", true); //butonlar eklendiðinde aktif olacaktýr...
+            //animator.SetBool("Run", true);
         }
 
         public void StartRunAnim()

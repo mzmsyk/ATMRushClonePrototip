@@ -23,7 +23,7 @@ public class PlayerMovementController : MonoBehaviour
     void FixedUpdate()
     {
        
-        if (!_isReadyToMove)
+        if (_isReadyToMove)
         {
             Move();
         }
@@ -34,11 +34,11 @@ public class PlayerMovementController : MonoBehaviour
     }
     public void ActivateMovement()
     {
-        _isReadyToMove = false;//true
+        _isReadyToMove = true;//true
     }
     public void DeactivateMovement()
     {
-        _isReadyToMove = true;//false
+        _isReadyToMove = false;//false
     }
     private void Move()
     {
