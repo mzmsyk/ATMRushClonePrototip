@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Enums;
 using Controllers;
+using Signals;
 
 public class CollectableManager : MonoBehaviour
 {
@@ -45,7 +46,7 @@ public class CollectableManager : MonoBehaviour
 
     public void OnCollectableAndATMCollide(Transform atmyeGirenObje)
     {
-        //ScoreSignals.Instance.onATMScoreUpdated?.Invoke((int)collectableType);
+        ScoreSignals.Instance.onATMScoreUpdated?.Invoke((int)collectableType);
         StackCollectablesToMiniGame();
         CollectableSignals.Instance.onCollectableATMCollide?.Invoke(transform);
     }

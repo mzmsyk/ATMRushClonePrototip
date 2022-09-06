@@ -77,7 +77,7 @@ public class CollectableStackManager : MonoBehaviour
         collectables.TrimExcess();
         AddCollectableToList(addedNode);
         StartCoroutine(AddCollectableEffect(collectables.Count));
-        //ScoreSignals.Instance.onPlayerScoreUpdated?.Invoke(CalculateStackValue());
+        ScoreSignals.Instance.onPlayerScoreUpdated?.Invoke(CalculateStackValue());
     }
 
     public void AddCollectableToList(Transform other)
@@ -96,18 +96,18 @@ public class CollectableStackManager : MonoBehaviour
     private void OnCollectableAndObstacleCollide(Transform node)
     {
         RemoveCollectablesFromList(node, false, "Collectable");
-        //ScoreSignals.Instance.onPlayerScoreUpdated?.Invoke(CalculateStackValue());
+        ScoreSignals.Instance.onPlayerScoreUpdated?.Invoke(CalculateStackValue());
     }
 
     private void OnCollectableUpgradeCollide(Transform upgradedNode)
     {
-        //ScoreSignals.Instance.onPlayerScoreUpdated?.Invoke(CalculateStackValue());
+        ScoreSignals.Instance.onPlayerScoreUpdated?.Invoke(CalculateStackValue());
     }
 
     private void OnPlayerAndObstacleCrash()
     {
         RemoveAllList();
-        //ScoreSignals.Instance.onPlayerScoreUpdated?.Invoke(CalculateStackValue());
+        ScoreSignals.Instance.onPlayerScoreUpdated?.Invoke(CalculateStackValue());
     }
 
     private void RemoveAllList()

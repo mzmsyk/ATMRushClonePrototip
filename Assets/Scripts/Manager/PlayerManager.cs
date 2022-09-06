@@ -1,4 +1,5 @@
 using Controller;
+using Controllers;
 using Keys;
 using Signals;
 using System.Collections;
@@ -11,7 +12,9 @@ public class PlayerManager : MonoBehaviour
     #region public vars
     #endregion
     #region serializefield vars
+    [SerializeField] PlayerScoreTextController playerScoreTextController;
     [SerializeField] PlayerAnimationController playerAnimationController;
+
     #endregion
     #region private vars
     PlayerMovementController _playerMovementController;
@@ -28,14 +31,14 @@ public class PlayerManager : MonoBehaviour
     }
     private void Start()
     {
-        SubscribeEvents();
+        //SubscribeEvents();
     }
     private PlayerData GetPlayerData() => Resources.Load<CD_Player>("Datas/UnityObjects/CD_Player").Data;
     #region Event Subsicription
 
     void OnEnable()
     {
-        //SubscribeEvents();
+        SubscribeEvents();
     }
 
     private void SubscribeEvents()
@@ -44,6 +47,7 @@ public class PlayerManager : MonoBehaviour
         InputSignals.Instance.onInputDragged += OnInputDragged;
         InputSignals.Instance.onInputReleased += OnInputReleased;
         PlayerSignals.Instance.onPlayerAndObstacleCrash += OnPlayerAndObstacleCrash;
+        ScoreSignals.Instance.onTotalScoreUpdated += OnUpdateCurrentScore;
         PlayerSignals.Instance.onPlayerEnterFinishLine += OnDeactivateMovement;
     }
     private void UnsubscribeEvents()
@@ -52,6 +56,7 @@ public class PlayerManager : MonoBehaviour
         InputSignals.Instance.onInputDragged -= OnInputDragged;
         InputSignals.Instance.onInputReleased -= OnInputReleased;
         PlayerSignals.Instance.onPlayerAndObstacleCrash -= OnPlayerAndObstacleCrash;
+        ScoreSignals.Instance.onTotalScoreUpdated -= OnUpdateCurrentScore;
         PlayerSignals.Instance.onPlayerEnterFinishLine -= OnDeactivateMovement;
     }
    
@@ -90,5 +95,8 @@ public class PlayerManager : MonoBehaviour
     {
         _playerMovementController.PushPlayerBack();
     }
-
+    private void OnUpdateCurrentScore(int score)
+    {
+        playerScoreTextController.UpdateScoreText(score);
+    }
 }

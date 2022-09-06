@@ -1,4 +1,5 @@
 using DG.Tweening;
+using Signals;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -33,13 +34,13 @@ namespace Managers
 
         private void SubscribeEvents()
         {
-            //ScoreSignals.Instance.onUpdateAtmScore += OnUpdateAtmScore;
+            ScoreSignals.Instance.onUpdateAtmScore += OnUpdateAtmScore;
             PlayerSignals.Instance.onPlayerAndATMCrash += OnPlayerandATMCollide;
         }
 
         private void UnSubscribeEvents()
         {
-            //ScoreSignals.Instance.onUpdateAtmScore -= OnUpdateAtmScore;
+            ScoreSignals.Instance.onUpdateAtmScore -= OnUpdateAtmScore;
             PlayerSignals.Instance.onPlayerAndATMCrash -= OnPlayerandATMCollide;
         }
 

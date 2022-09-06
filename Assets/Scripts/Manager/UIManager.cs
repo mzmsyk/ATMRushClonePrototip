@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using Enums;
 using System;
+using Signals;
 
 public class UIManager : MonoBehaviour
 {
@@ -30,7 +31,7 @@ public class UIManager : MonoBehaviour
         UISignals.Instance.onOpenPanel += OnOpenPanel;
         UISignals.Instance.onClosePanel += OnClosePanel;
         CoreGameSignals.instance.onRestartLevel += OnRestartLevel;
-        //ScoreSignals.nstance.onCompleteScore += OnCompleteScore;
+        ScoreSignals.Instance.onCompleteScore += OnCompleteScore;
     }
 
     private void UnsubscribeEvents()
@@ -41,7 +42,7 @@ public class UIManager : MonoBehaviour
         UISignals.Instance.onOpenPanel -= OnOpenPanel;
         UISignals.Instance.onClosePanel -= OnClosePanel;
         CoreGameSignals.instance.onRestartLevel -= OnRestartLevel;
-        //ScoreSignals.Instance.onCompleteScore -= OnCompleteScore;
+        ScoreSignals.Instance.onCompleteScore -= OnCompleteScore;
     }
     private void OnDisable()
     {
@@ -57,23 +58,23 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        //_levelID = GetLevelIDData();
-        //_money = GetMoneyData();
+        _levelID = GetLevelIDData();
+        _money = GetMoneyData();
 
         UpdateLevelText(0);
         UpdateMoneyText();
     }
 
-    //private int GetLevelIDData()
-    //{
-    //    return ScoreSignals.Instance.loadSavedLevelValue();
-    //}
+    private int GetLevelIDData()
+    {
+        return ScoreSignals.Instance.loadSavedLevelValue();
+    }
 
-    //private int GetMoneyData()
-    //{
-    //    return ScoreSignals.Instance.loadSavedMoneyValue();
+    private int GetMoneyData()
+    {
+        return ScoreSignals.Instance.loadSavedMoneyValue();
 
-    //}
+    }
 
     private void UpdateLevelText(int incremental)
     {

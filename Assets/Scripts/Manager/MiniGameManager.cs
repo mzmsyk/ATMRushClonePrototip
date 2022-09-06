@@ -33,7 +33,7 @@ namespace Managers
 
         private Vector3 _nextMoneyTransform;
         private List<GameObject> _Dollars = new List<GameObject>();
-        public int _playerScore;//private
+        private int _playerScore;//private
 
         #endregion
 
@@ -60,7 +60,7 @@ namespace Managers
         {
             CoreGameSignals.instance.onLevelSuccessful += MoveFinishPlayerUp;
             CollectableSignals.Instance.onMiniGameStackCollected += StackUpCollectables;
-            //ScoreSignals.Instance.onTotalScoreUpdated += OnTotalScoreUpdated;
+            ScoreSignals.Instance.onTotalScoreUpdated += OnTotalScoreUpdated;
         }
 
 
@@ -68,7 +68,7 @@ namespace Managers
         {
             CoreGameSignals.instance.onLevelSuccessful -= MoveFinishPlayerUp;
             CollectableSignals.Instance.onMiniGameStackCollected -= StackUpCollectables;
-            //ScoreSignals.Instance.onTotalScoreUpdated -= OnTotalScoreUpdated;
+            ScoreSignals.Instance.onTotalScoreUpdated -= OnTotalScoreUpdated;
         }
 
 
