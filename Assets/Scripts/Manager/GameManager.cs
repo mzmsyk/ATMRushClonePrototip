@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
 
     private void UnsubscribeEvents()
     {
-        CoreGameSignals.instance.onSaveGameData -= _SaveGameCommand.OnSaveGameData;
+       // CoreGameSignals.instance.onSaveGameData -= _SaveGameCommand.OnSaveGameData;
 
         ScoreSignals.Instance.loadSavedLevelValue -= LoadSavedLevelValue;
         ScoreSignals.Instance.loadSavedMoneyValue -= LoadSavedMoneyValue;

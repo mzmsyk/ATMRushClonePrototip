@@ -1,4 +1,6 @@
 using Keys;
+using System;
+using UnityEngine;
 namespace Commands
 {
     public class SaveGameCommand
@@ -8,6 +10,7 @@ namespace Commands
             if (saveGameDataParams.Level!=null)
             {
                 ES3.Save("Level", saveGameDataParams.Level);
+                Debug.Log("kaydedildi"+saveGameDataParams.Level);
             }
             if (saveGameDataParams.Money!=null)
             {

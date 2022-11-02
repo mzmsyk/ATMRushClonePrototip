@@ -60,8 +60,8 @@ namespace Controller
         {
             ChangeAnimationData(AnimationStates.Idle);
             ResetAllAnims();
-            animator.SetBool("Idle", true); //butonlar eklendiðinde aktif olacaktýr...
-            //animator.SetBool("Run", true);
+            animator.SetBool("Idle", true); 
+           
         }
 
         public void StartRunAnim()
